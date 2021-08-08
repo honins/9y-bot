@@ -16,3 +16,5 @@
 - 将坐标数组按x轴重小到大排列，使用pyautogui依次键入
 
 总体来看思路二更加简单，也同样有效。
+
+参考文档：https://www.cnblogs.com/ffrs/p/11353650.html
