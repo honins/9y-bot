@@ -17,10 +17,15 @@ from src.handler import do_action
 
 # 半屏团练
 # location = pyautogui.locateOnScreen(image='../static/right.png', region=(260, 750, 700, 50), confidence=0.9)
-# location = pyautogui.locateOnScreen(image='../static/tmp.png', region=(260, 750, 700, 50), confidence=0.9)
+# location = pyautogui.locateOnScreen(image='../static/down.png', region=(260, 750, 700, 50), confidence=0.9)
 
 # 测试
-image_path = "../static/tmp.png"
+image_path = []
+image_path.append("../static/half/down.png")
+image_path.append("../static/half/up.png")
+image_path.append("../static/half/k.png")
+
+# image_path = "../static/half/up.png"
 
 locations = found_location(image_path)
 
