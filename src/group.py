@@ -27,11 +27,15 @@ image_path.append("../static/half/k.png")
 
 # image_path = "../static/half/up.png"
 
+# TODO 根据list中的dict的left排序
 locations = found_location(image_path)
 
-sorted(locations, key=lambda items: items)
+# sorted(locations, key=lambda items: items)
 
-for (key, location) in locations.items():
-    print('key', key, 'location', location)
-    do_action(location)
+# for (key, location) in locations.items():
+#     print('key', key, 'location', location)
+#     do_action(key, location)
 
+for location in locations:
+    for (key, sorted_location) in location.items():
+        do_action(key, sorted_location)

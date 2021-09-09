@@ -6,22 +6,31 @@ def found_location(image_path):
     # location = pyautogui.locateOnScreen(image=image_path, region=(370, 640, 580, 30), confidence=0.9)
 
     locations = []
-    temp_dir = {}
-
-    count = 0
 
     for path in image_path:
         locations_gene = pyautogui.locateAllOnScreen(image=path, region=(390, 600, 180, 30), confidence=0.9)
         # 输出坐标
         for location in locations_gene:
-            locations.append(location)
-            temp_dir[count] = location
-            count = count + 1
+            temp_dir = {}
+            if 'up' in path:
+                temp_dir['w'] = location
+            if 'down' in path:
+                temp_dir['s'] = location
+            if 'left' in path:
+                temp_dir['a'] = location
+            if 'right' in path:
+                temp_dir['d'] = location
+            if 'j' in path:
+                temp_dir['j'] = location
+            if 'k' in path:
+                temp_dir['k'] = location
 
-    return temp_dir
+            locations.append(temp_dir)
+
+    return locations
 
 
-def do_action(a_location: object) -> object:
+def do_action(key, a_location):
     if a_location:
         # 利用center()函数获取目标图像在系统中的中心坐标位置
         x, y = pyautogui.center(a_location)
@@ -32,10 +41,9 @@ def do_action(a_location: object) -> object:
         pyautogui.click(x=x, y=y, clicks=1, button='right')
         print(time.time(), "do click!")
 
-        pyautogui.press('d')
+        pyautogui.write(key)
 
-        pyautogui.write("d")
-        # print("press right!")
+        print('pyautogui.write', key)
 
     else:
         print("None!")
