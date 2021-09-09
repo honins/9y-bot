@@ -17,7 +17,8 @@ def found_location(image_path):
             locations.append(location)
             temp_dir[count] = location
             count = count + 1
-    return locations
+
+    return temp_dir
 
 
 def do_action(a_location: object) -> object:

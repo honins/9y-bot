@@ -29,9 +29,9 @@ image_path.append("../static/half/k.png")
 
 locations = found_location(image_path)
 
+sorted(locations, key=lambda items: items)
 
-for location in locations:
-    print("---")
-    print(location)
+for (key, location) in locations.items():
+    print('key', key, 'location', location)
     do_action(location)
 
