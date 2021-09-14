@@ -20,22 +20,32 @@ from src.handler import do_action
 # location = pyautogui.locateOnScreen(image='../static/down.png', region=(260, 750, 700, 50), confidence=0.9)
 
 # 测试
-image_path = []
-image_path.append("../static/half/down.png")
-image_path.append("../static/half/up.png")
-image_path.append("../static/half/k.png")
+
+env = 'test'
+
+if env == 'test':
+    image_path = []
+    image_path.append("../static/half/up.png")
+    image_path.append("../static/half/down.png")
+    image_path.append("../static/half/k.png")
+
+if env == 'prod':
+    image_path = []
+    image_path.append("../static/down.png")
+    image_path.append("../static/up.png")
+    image_path.append("../static/k.png")
 
 # image_path = "../static/half/up.png"
+while True:
 
-# TODO 根据list中的dict的left排序
-locations = found_location(image_path)
 
-# sorted(locations, key=lambda items: items)
+    locations = found_location(image_path)
 
-# for (key, location) in locations.items():
-#     print('key', key, 'location', location)
-#     do_action(key, location)
+    # TODO 根据list中的dict的left排序
+    locations.sort(key= lambda x:x.items())
 
-for location in locations:
-    for (key, sorted_location) in location.items():
-        do_action(key, sorted_location)
+    time.sleep(3)
+
+    for location in locations:
+        for (key, sorted_location) in location.items():
+            do_action(key, sorted_location)
