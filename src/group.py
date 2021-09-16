@@ -38,14 +38,12 @@ if env == 'prod':
 # image_path = "../static/half/up.png"
 while True:
 
-
     locations = found_location(image_path)
 
     # TODO 根据list中的dict的left排序
-    locations.sort(key= lambda x:x.items())
+    locations.sort(key=lambda k: k.get('location', 0))
 
-    time.sleep(3)
+    time.sleep(2)
 
     for location in locations:
-        for (key, sorted_location) in location.items():
-            do_action(key, sorted_location)
+        do_action(location.get('key'), location.get('location'))

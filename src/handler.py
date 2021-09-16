@@ -13,18 +13,24 @@ def found_location(image_path):
         for location in locations_gene:
             temp_dir = {}
             if 'up' in path:
-                temp_dir['w'] = location
-            if 'down' in path:
-                temp_dir['s'] = location
-            if 'left' in path:
-                temp_dir['a'] = location
-            if 'right' in path:
-                temp_dir['d'] = location
-            if 'j' in path:
-                temp_dir['j'] = location
-            if 'k' in path:
-                temp_dir['k'] = location
+                temp_dir['key'] = 'w'
 
+            if 'down' in path:
+                temp_dir['key'] = 's'
+
+            if 'left' in path:
+                temp_dir['key'] = 'a'
+
+            if 'right' in path:
+                temp_dir['key'] = 'd'
+
+            if 'j' in path:
+                temp_dir['key'] = 'j'
+
+            if 'k' in path:
+                temp_dir['key'] = 'k'
+
+            temp_dir['location'] = location
             locations.append(temp_dir)
 
     return locations
