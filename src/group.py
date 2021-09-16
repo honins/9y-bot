@@ -11,14 +11,13 @@ import time
 
 from src.handler import found_location
 from src.handler import do_action
+from src.config import env
 
 # 半屏团练
 # location = pyautogui.locateOnScreen(image='../static/right.png', region=(260, 750, 700, 50), confidence=0.9)
 # location = pyautogui.locateOnScreen(image='../static/down.png', region=(260, 750, 700, 50), confidence=0.9)
 
 # 测试
-
-env = 'prod'
 
 if env == 'test':
     image_path = []

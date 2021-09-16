@@ -1,11 +1,10 @@
 import pyautogui
 import time
 
-from src.group import env
+from src.config import env
 
 
-def found_location(image_path, scan_location):
-
+def found_location(image_path):
     locations = []
 
     for path in image_path:
@@ -53,9 +52,11 @@ def do_action(key, a_location):
         pyautogui.click(x=x, y=y, clicks=1, button='right')
         print(time.time(), "do click!")
 
-        pyautogui.write(key)
-
         print('pyautogui.write', key)
+
+
+
+        pyautogui.write(key)
 
     else:
         print("None!")
