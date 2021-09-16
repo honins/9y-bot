@@ -1,16 +1,22 @@
 import pyautogui
 import time
 
+from src.group import env
 
-def found_location(image_path):
-    # location = pyautogui.locateOnScreen(image=image_path, region=(370, 640, 580, 30), confidence=0.9)
+
+def found_location(image_path, scan_location):
 
     locations = []
 
     for path in image_path:
-        locations_gene = pyautogui.locateAllOnScreen(image=path, region=(390, 600, 180, 30), confidence=0.9)
+        if env == 'test':
+            scan_location = pyautogui.locateAllOnScreen(image=path, region=(390, 600, 180, 30), confidence=0.9)
+
+        if env == 'prod':
+            scan_location = pyautogui.locateAllOnScreen(image=path, region=(740, 750, 450, 50), confidence=0.9)
+
         # 输出坐标
-        for location in locations_gene:
+        for location in scan_location:
             temp_dir = {}
             if 'up' in path:
                 temp_dir['key'] = 'w'
@@ -24,10 +30,10 @@ def found_location(image_path):
             if 'right' in path:
                 temp_dir['key'] = 'd'
 
-            if 'j' in path:
+            if 'J' in path:
                 temp_dir['key'] = 'j'
 
-            if 'k' in path:
+            if 'K' in path:
                 temp_dir['key'] = 'k'
 
             temp_dir['location'] = location

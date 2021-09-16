@@ -12,30 +12,29 @@ import time
 from src.handler import found_location
 from src.handler import do_action
 
-# 真实团练
-# location = pyautogui.locateOnScreen(image='../static/right.png', region=(740, 750, 450, 50), confidence=0.9)
-
 # 半屏团练
 # location = pyautogui.locateOnScreen(image='../static/right.png', region=(260, 750, 700, 50), confidence=0.9)
 # location = pyautogui.locateOnScreen(image='../static/down.png', region=(260, 750, 700, 50), confidence=0.9)
 
 # 测试
 
-env = 'test'
+env = 'prod'
 
 if env == 'test':
     image_path = []
     image_path.append("../static/half/up.png")
     image_path.append("../static/half/down.png")
-    image_path.append("../static/half/k.png")
+    image_path.append("../static/half/K.png")
 
 if env == 'prod':
     image_path = []
-    image_path.append("../static/down.png")
-    image_path.append("../static/up.png")
-    image_path.append("../static/k.png")
+    image_path.append("../static/prod/up.png")
+    image_path.append("../static/prod/down.png")
+    image_path.append("../static/prod/left.png")
+    image_path.append("../static/prod/right.png")
+    image_path.append("../static/prod/J.png")
+    image_path.append("../static/prod/K.png")
 
-# image_path = "../static/half/up.png"
 while True:
 
     locations = found_location(image_path)
