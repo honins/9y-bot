@@ -12,9 +12,9 @@ def found_location(image_path):
             scan_location = pyautogui.locateAllOnScreen(image=path, region=(390, 600, 180, 30), confidence=0.9)
 
         if env == 'prod':
-            scan_location = pyautogui.locateAllOnScreen(image=path, region=(740, 750, 450, 50), confidence=0.9)
+            scan_location = pyautogui.locateAllOnScreen(image=path, region=(800, 750, 300, 50), confidence=0.9)
 
-        # 输出坐标
+        # 输出坐标djj
         for location in scan_location:
             temp_dir = {}
             if 'up' in path:
@@ -48,15 +48,9 @@ def do_action(key, a_location):
         print('center()', x, y)
 
         # 对识别出的目标图像进行点击
-        # 参数x,y代表坐标位置，clicks代表点击次数,button可以设置为左键或者右键
-        pyautogui.click(x=x, y=y, clicks=1, button='right')
-        print(time.time(), "do click!")
-
         print('pyautogui.write', key)
 
-
-
-        pyautogui.write(key)
+        pyautogui.write(key, interval=0.1)
 
     else:
         print("None!")

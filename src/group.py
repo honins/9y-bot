@@ -41,7 +41,7 @@ while True:
     # TODO 根据list中的dict的left排序
     locations.sort(key=lambda k: k.get('location', 0))
 
-    time.sleep(2)
+    time.sleep(0.5)
 
     for location in locations:
         do_action(location.get('key'), location.get('location'))
